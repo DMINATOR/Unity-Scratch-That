@@ -39,7 +39,9 @@ public class GameController : MonoBehaviour, ISaveGame
     */
 
     [Header("Variables")]
-    public List<BoughtTicketsPack> BoughtTickets;
+
+    [Tooltip("Ticket packs that were bought so far")]
+    public List<BoughtTicketsPack> BoughtTicketPacks;
 
     [Header("Input")]
 
@@ -101,7 +103,12 @@ public class GameController : MonoBehaviour, ISaveGame
     {
         Log.Instance.Info(GameController.LOG_SOURCE, $"Clear Game Data started");
 
+        foreach (var pack in BoughtTicketPacks)
+        {
+            Destroy(pack);
+        }
 
+        BoughtTicketPacks.Clear();
 
         Log.Instance.Info(GameController.LOG_SOURCE, $"Clear Game Data finished");
     }
@@ -110,7 +117,10 @@ public class GameController : MonoBehaviour, ISaveGame
     {
         foreach(var pack in instance.BoughtTicketPacks)
         {
+            var gameObject = Instantiate(Locator.BoughtTicketsPackPrefab, Vector3.zero, Quaternion.identity, Locator.BoughtTicketsRoot.gameObject.transform);
+            var boughtTickets = gameObject.GetComponent<BoughtTicketsPack>();
 
+            BoughtTicketPacks.Add(boughtTickets);
         }
     }
 

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class GameControllerLocator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Tooltip("Contains currently bought tickets")]
+    public GameObject BoughtTicketsRoot;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Prefabs")]
+
+    [Tooltip("Prefab to create Bought tickets packs")]
+    public GameObject BoughtTicketsPackPrefab;
 }
