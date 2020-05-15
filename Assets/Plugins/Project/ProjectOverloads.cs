@@ -38,5 +38,13 @@ public class SaveSlotInstance
 public class SaveSlotBoughtTicketPack
 {
     // Name of the game mode
-    public string GameModeName;
+    public SaveSlotGameMode GameMode;
+}
+
+[System.Serializable]
+public class SaveSlotGameMode
+{
+    public string Name;
+
+
 }
