@@ -44,7 +44,9 @@ public class SaveSlotBoughtTicketPack
 [System.Serializable]
 public class SaveSlotGameMode
 {
+    // Name of the game mode
     public string Name;
 
-
+    // Seed
+    public int Seed;
 }

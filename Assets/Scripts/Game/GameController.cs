@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour, ISaveGame
         {
             var gameObject = Instantiate(Locator.BoughtTicketsPackPrefab, Vector3.zero, Quaternion.identity, Locator.BoughtTicketsRoot.gameObject.transform);
             var boughtTickets = gameObject.GetComponent<BoughtTicketsPack>();
-            boughtTickets.Init(pack.GameMode);
+            boughtTickets.Init(pack);
 
             BoughtTicketPacks.Add(boughtTickets);
         }

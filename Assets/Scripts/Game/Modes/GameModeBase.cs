@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GameModeBaseLocator))]
 public class GameModeBase : MonoBehaviour
 {
-    /*
-    // Dictionary of game mode instances
-    private static Dictionary<string, GameModeBase> _gameModes = new Dictionary<string, GameModeBase>()
-    {
-        { nameof(PrototypeGameMode),  new PrototypeGameMode() }
-    };
-    */
+    //Exposed
+
+    [Header("Locator")]
+
+    [Tooltip("Locator")]
+    public GameModeBaseLocator Locator;
 
     public static GameModeBase AddModeByName(GameObject parentGameObject, string name)
     {

@@ -14,9 +14,9 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Game mode used by this pack")]
     public GameModeBase GameMode;
 
-    public void Init(SaveSlotGameMode save)
+    public void Init(SaveSlotBoughtTicketPack pack)
     {
-        GameMode = GameModeBase.AddModeByName( this.gameObject, save.Name);
+        GameMode = GameModeBase.AddModeByName( this.gameObject, pack.GameMode.Name);
     }
 
     // Start is called before the first frame update
