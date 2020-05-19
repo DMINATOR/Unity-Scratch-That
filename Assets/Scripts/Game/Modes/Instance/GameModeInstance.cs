@@ -16,6 +16,9 @@ public class GameModeInstance : MonoBehaviour
     [Tooltip("Seed used for random generation")]
     public int Seed;
 
+    [Tooltip("Current index of generated ticket")]
+    public int CurrentTicketIndex;
+
     // Start is called before the first frame update
     void Start()
     {

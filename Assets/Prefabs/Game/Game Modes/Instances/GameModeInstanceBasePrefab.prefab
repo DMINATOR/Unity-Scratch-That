@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameMode: {fileID: 0}
   Statistics: {fileID: 8530238192061355779}
+  CurrentTicket: {fileID: 0}
 --- !u!114 &744422771591435042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Locator: {fileID: 744422771591435043}
   Seed: 0
+  CurrentTicketIndex: 0
 --- !u!114 &8530238192061355779
 MonoBehaviour:
   m_ObjectHideFlags: 0
