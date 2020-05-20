@@ -19,15 +19,21 @@ public class GameModeInstance : MonoBehaviour
     [Tooltip("Current index of generated ticket")]
     public int CurrentTicketIndex;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        // Set defaults
+        Locator.GameMode.Seed = Seed;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Generates new ticket
+    public void GenerateTicket()
     {
-        
+        if( CurrentTicketIndex < Locator.GameMode.TotalTickets)
+        {
+            var generatedPlayingAreas = Locator.GameMode.GenerateTicket(CurrentTicketIndex);
+            Locator.CurrentTicket.UpdatePlayingAreas(generatedPlayingAreas);
+
+            CurrentTicketIndex++;
+        }
     }
 }

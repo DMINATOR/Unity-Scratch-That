@@ -12,4 +12,7 @@ public class GameModeInstanceLocator : MonoBehaviour
 
     [Tooltip("Current generated ticket")]
     public GameModeInstanceTicketBase CurrentTicket;
+
+    [Tooltip("Current generated ticket")]
+    public GameModeInstancePlayingAreaBase[] PlayingAreas;
 }

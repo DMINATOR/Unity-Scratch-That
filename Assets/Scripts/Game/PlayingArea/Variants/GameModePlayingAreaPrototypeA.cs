@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameModePlayingAreaPrototypeA : GameModePlayingAreaBase
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,13 @@ public class GameModePlayingAreaPrototypeA : GameModePlayingAreaBase
     void Update()
     {
         
+    }
+
+    internal override GameModeInstancePlayingAreaBase GenerateResults()
+    {
+        return new GameModeInstancePlayingAreaPrototypeA
+        {
+            PlayingArea = this
+        };
     }
 }

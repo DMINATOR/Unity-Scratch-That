@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameModeDefinitionBase : MonoBehaviour
+public abstract class GameModeDefinitionBase : MonoBehaviour
 {
     //Exposed
 
@@ -23,15 +24,22 @@ public class GameModeDefinitionBase : MonoBehaviour
     public GameModePlayingAreaBase[] PlayingAreas = null;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Status")]
 
-    // Update is called once per frame
-    void Update()
+    [ReadOnly]
+    [Tooltip("Seed for random generation")]
+    public int Seed;
+
+
+    internal GameModeInstancePlayingAreaBase[] GenerateTicket(int index)
     {
-        
+        var results = new List<GameModeInstancePlayingAreaBase>();
+
+        foreach (var playingArea in PlayingAreas)
+        {
+            results.Add(playingArea.GenerateResults());
+        }
+
+        return results.ToArray();
     }
 }

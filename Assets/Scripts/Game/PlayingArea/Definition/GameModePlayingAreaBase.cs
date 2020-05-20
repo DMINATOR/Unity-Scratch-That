@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameModePlayingAreaBase : MonoBehaviour
+public abstract class GameModePlayingAreaBase : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,4 +16,6 @@ public class GameModePlayingAreaBase : MonoBehaviour
     {
         
     }
+
+    internal abstract GameModeInstancePlayingAreaBase GenerateResults();
 }
