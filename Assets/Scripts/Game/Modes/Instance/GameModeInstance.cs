@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GameModeInstanceLocator))]
 public class GameModeInstance : MonoBehaviour
 {
-
-    [Header("Locator")]
-
-    [Tooltip("Locator")]
-    public GameModeInstanceLocator Locator;
 
     [Header("Variables")]
 
@@ -22,18 +16,25 @@ public class GameModeInstance : MonoBehaviour
     private void Start()
     {
         // Set defaults
-        Locator.GameMode.Seed = Seed;
+        //Locator.GameMode.Seed = Seed;
     }
 
     // Generates new ticket
     public void GenerateTicket()
     {
-        if( CurrentTicketIndex < Locator.GameMode.TotalTickets)
-        {
-            var generatedPlayingAreas = Locator.GameMode.GenerateTicket(CurrentTicketIndex);
-            Locator.CurrentTicket.UpdatePlayingAreas(generatedPlayingAreas);
+        //if( CurrentTicketIndex < Locator.GameMode.TotalTickets)
+        //{
+        //    foreach(var playingArea in Locator.PlayingAreas)
+        //    {
+        //        playingArea.GenerateResults();
+        //    }
 
-            CurrentTicketIndex++;
-        }
+        //    CurrentTicketIndex++;
+        //    /*
+        //    var generatedPlayingAreas = Locator.GameMode.GenerateTicket(CurrentTicketIndex);
+        //    Locator.CurrentTicket.UpdatePlayingAreas(generatedPlayingAreas);
+
+        //    CurrentTicketIndex++;*/
+        //}
     }
 }
