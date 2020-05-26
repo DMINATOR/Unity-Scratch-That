@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dca164d2633114e87d53f23901f725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Seed: 0
 --- !u!1 &1564064108
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dca164d2633114e87d53f23901f725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Seed: 0
 --- !u!1 &1665392564
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dca164d2633114e87d53f23901f725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Seed: 0
 --- !u!1001 &1541157498505642654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}
       propertyPath: Prizes.Array.data[1].PrizeCount
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}
@@ -189,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}
       propertyPath: Prizes.Array.data[2].PrizeCount
-      value: 3000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}
@@ -200,6 +203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: TotalTickets
       value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
+        type: 3}
+      propertyPath: CurrentTicketIndex
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6418867724222281076, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}

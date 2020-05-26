@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422586258755615048}
   m_Layer: 0
-  m_Name: GeneratedPlayingAreas
+  m_Name: PlayingAreas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad759a1d17247c74f96744808c6c0dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locator: {fileID: 744422771591435043}
   Seed: 0
   CurrentTicketIndex: 0
 --- !u!114 &8530238192061355779

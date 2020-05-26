@@ -10,8 +10,10 @@ public class BoughtTicketsPack : MonoBehaviour
 
     [Header("Constants")]
     [ReadOnly]
-    [Tooltip("Random generator")]
-    public System.Random _random;
+    [Tooltip("Logging source")]
+    public static string LOG_SOURCE = "GameController";
+
+
 
     //Exposed
 
@@ -30,6 +32,9 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Current index of generated ticket")]
     public int CurrentTicketIndex;
 
+    [Tooltip("Prizes won so far")]
+    public Dictionary<int, BoughtTicketsWinnings> PrizesWon = new Dictionary<int, BoughtTicketsWinnings>();
+
 
     [Header("Game settings")]
 
@@ -38,6 +43,15 @@ public class BoughtTicketsPack : MonoBehaviour
 
     [Tooltip("Available prizes")]
     public BoughtTicketsWinnings[] Prizes;
+
+
+    [Header("Status")]
+    [ReadOnly]
+    [Tooltip("Random generator")]
+    public System.Random _random;
+
+    [Tooltip("Generated winnings")]
+    public Dictionary<int, BoughtTicketsWinnings> GeneratedPrizeWinnings = new Dictionary<int, BoughtTicketsWinnings>();
 
     public void Init(SaveSlotBoughtTicketPack pack)
     {
@@ -48,7 +62,12 @@ public class BoughtTicketsPack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         _random = new System.Random(Seed);
+
+        Locator.Ticket.ApplySeed(Seed,CurrentTicketIndex);
+
+        GenerateWinningTickets();
     }
 
     // Update is called once per frame
@@ -57,8 +76,100 @@ public class BoughtTicketsPack : MonoBehaviour
         
     }
 
-    void GenerateNextTicket()
+    public void GenerateWinningTickets()
     {
+        Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Generating winning prizes {Seed} - Start");
 
+        for(var i = 0; i < CurrentTicketIndex; i++)
+        {
+            _random.Next();
+        }
+
+        GeneratedPrizeWinnings.Clear();
+
+        var infiniteLoopCheck = 0;
+
+        foreach (var prizeWinnings in Prizes)
+        {
+            for(var i = 0; i < prizeWinnings.PrizeCount; i++)
+            {
+                while(true)
+                {
+                    var randomPosition = _random.Next(0, TotalTickets - 1);
+                    var positionTaken = GeneratedPrizeWinnings.ContainsKey(randomPosition);
+
+                    if( positionTaken )
+                    {
+                        // Get next value, make sure we don't get stuck in a loop
+                        infiniteLoopCheck++;
+
+                        if( infiniteLoopCheck > 1000)
+                        {
+                            throw new System.Exception($"Infinite loop detected, iterated over {infiniteLoopCheck}");
+                        }
+
+                        continue;
+                    }
+                    else
+                    {
+                        // Assign winning value
+                        GeneratedPrizeWinnings.Add(randomPosition, prizeWinnings);
+
+                        infiniteLoopCheck = 0;
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Generating winning prizes - Done");
+    }
+
+    public void GenerateNextTicket()
+    {
+        if( HasTicketsToUnveil() )
+        {
+            CurrentTicketIndex++;
+
+            BoughtTicketsWinnings winningTicket;
+
+            if (GeneratedPrizeWinnings.TryGetValue(CurrentTicketIndex, out winningTicket))
+            {
+                // Winning ticket
+                Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Winning ticket unlocked ({CurrentTicketIndex}) = {winningTicket.Value}");
+
+                // Update winnings so far
+                BoughtTicketsWinnings win;
+
+                if ( PrizesWon.ContainsKey(winningTicket.Value))
+                {
+                    // Already exists
+                    win = PrizesWon[winningTicket.Value];
+                }
+                else
+                {
+                    // Create new 
+                    win = new BoughtTicketsWinnings();
+                }
+
+                win.PrizeCount++;
+                PrizesWon[winningTicket.Value] = win;
+
+                Locator.Ticket.GenerateWin(winningTicket);
+            }
+            else
+            {
+                // Not winning ticket
+                Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Loosing ticket unlocked ({CurrentTicketIndex})");
+                Locator.Ticket.GenerateLoose();
+            }
+
+        }
+    }
+
+    public bool HasTicketsToUnveil()
+    {
+        return CurrentTicketIndex < TotalTickets;
     }
 }
