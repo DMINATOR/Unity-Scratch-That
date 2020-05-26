@@ -1291,11 +1291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 702997330}
     m_Modifications:
-    - target: {fileID: 2423010089570537677, guid: 7bdf9baa1a0b6114baaf241913707a62,
-        type: 3}
-      propertyPath: CurrentTicketIndex
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5509921853384620009, guid: 7bdf9baa1a0b6114baaf241913707a62,
         type: 3}
       propertyPath: m_LocalPosition.x

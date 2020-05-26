@@ -207,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}
       propertyPath: CurrentTicketIndex
-      value: 50
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6418867724222281076, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}

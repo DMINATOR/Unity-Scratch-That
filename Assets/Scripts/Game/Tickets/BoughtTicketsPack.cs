@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ public class BoughtTicketsPack : MonoBehaviour
     public int CurrentTicketIndex;
 
     [Tooltip("Prizes won so far")]
-    public Dictionary<int, BoughtTicketsWinnings> PrizesWon = new Dictionary<int, BoughtTicketsWinnings>();
+    public GenericDictionary<int, BoughtTicketsWinnings> PrizesWon = new GenericDictionary<int, BoughtTicketsWinnings>();
 
 
     [Header("Game settings")]
@@ -50,6 +51,9 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Random generator")]
     public System.Random _random;
 
+
+    public GenericDictionary<string, int> Something = new GenericDictionary<string, int>();
+
     [Tooltip("Generated winnings")]
     public Dictionary<int, BoughtTicketsWinnings> GeneratedPrizeWinnings = new Dictionary<int, BoughtTicketsWinnings>();
 
@@ -58,6 +62,8 @@ public class BoughtTicketsPack : MonoBehaviour
         // This will be loaded from prefab collection list
         //GameMode = GameModeBase.AddModeByName( this.gameObject, pack.GameMode.Name);
     }
+
+    #region Unity
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +81,8 @@ public class BoughtTicketsPack : MonoBehaviour
     {
         
     }
+
+    #endregion
 
     public void GenerateWinningTickets()
     {
