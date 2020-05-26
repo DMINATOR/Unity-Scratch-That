@@ -33,8 +33,8 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Current index of generated ticket")]
     public int CurrentTicketIndex;
 
-    [Tooltip("Prizes won so far")]
-    public GenericDictionary<int, BoughtTicketsWinnings> PrizesWon = new GenericDictionary<int, BoughtTicketsWinnings>();
+   
+    [Space]
 
 
     [Header("Game settings")]
@@ -51,11 +51,13 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Random generator")]
     public System.Random _random;
 
-
-    public GenericDictionary<string, int> Something = new GenericDictionary<string, int>();
-
+    [ReadOnly]
     [Tooltip("Generated winnings")]
     public Dictionary<int, BoughtTicketsWinnings> GeneratedPrizeWinnings = new Dictionary<int, BoughtTicketsWinnings>();
+
+    [Tooltip("Prizes won so far")]
+    public GenericDictionary<int, BoughtTicketsWinnings> PrizesWon = new GenericDictionary<int, BoughtTicketsWinnings>();
+
 
     public void Init(SaveSlotBoughtTicketPack pack)
     {
