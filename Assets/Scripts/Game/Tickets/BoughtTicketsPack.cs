@@ -147,15 +147,15 @@ public class BoughtTicketsPack : MonoBehaviour
             if (GeneratedPrizeWinnings.TryGetValue(CurrentTicketIndex, out winningTicket))
             {
                 // Winning ticket
-                Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Winning ticket unlocked ({CurrentTicketIndex}) = {winningTicket.Value}");
+                Log.Instance.Info(GameController.LOG_SOURCE, $"{nameof(BoughtTicketsPack)} Winning ticket unlocked ({CurrentTicketIndex}) = {winningTicket.PrizeValue}");
 
                 // Update winnings so far
                 BoughtTicketsWinnings win;
 
-                if ( PrizesWon.ContainsKey(winningTicket.Value))
+                if ( PrizesWon.ContainsKey(winningTicket.PrizeValue))
                 {
                     // Already exists
-                    win = PrizesWon[winningTicket.Value];
+                    win = PrizesWon[winningTicket.PrizeValue];
                 }
                 else
                 {
@@ -164,7 +164,7 @@ public class BoughtTicketsPack : MonoBehaviour
                 }
 
                 win.PrizeCount++;
-                PrizesWon[winningTicket.Value] = win;
+                PrizesWon[winningTicket.PrizeValue] = win;
 
                 Locator.Ticket.GenerateWin(winningTicket);
             }

@@ -209,6 +209,21 @@ PrefabInstance:
       propertyPath: CurrentTicketIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
+        type: 3}
+      propertyPath: Prizes.Array.data[0].PrizeValue
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
+        type: 3}
+      propertyPath: Prizes.Array.data[1].PrizeValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801891593839039059, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
+        type: 3}
+      propertyPath: Prizes.Array.data[2].PrizeValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6418867724222281076, guid: a5b92ec367b2e3648a0b3e50ed8d9ce6,
         type: 3}
       propertyPath: m_Name

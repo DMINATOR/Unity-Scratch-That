@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public struct BoughtTicketsWinnings
 {
-    public int Value;
+    public int PrizeValue;
     public int PrizeCount;
 }
