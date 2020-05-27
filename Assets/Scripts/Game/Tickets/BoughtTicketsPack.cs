@@ -58,7 +58,6 @@ public class BoughtTicketsPack : MonoBehaviour
     [Tooltip("Prizes won so far")]
     public GenericDictionary<int, BoughtTicketsWinnings> PrizesWon = new GenericDictionary<int, BoughtTicketsWinnings>();
 
-
     public void Init(SaveSlotBoughtTicketPack pack)
     {
         // This will be loaded from prefab collection list
@@ -160,7 +159,10 @@ public class BoughtTicketsPack : MonoBehaviour
                 else
                 {
                     // Create new 
-                    win = new BoughtTicketsWinnings();
+                    win = new BoughtTicketsWinnings()
+                    {
+                        PrizeValue = winningTicket.PrizeValue
+                    };
                 }
 
                 win.PrizeCount++;
