@@ -47,6 +47,7 @@ public class BoughtTicketsPack : MonoBehaviour
 
 
     [Header("Status")]
+
     [ReadOnly]
     [Tooltip("Random generator")]
     public System.Random _random;
@@ -69,7 +70,6 @@ public class BoughtTicketsPack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
         _random = new System.Random(Seed);
 
         Locator.Ticket.ApplySeed(Seed,CurrentTicketIndex);

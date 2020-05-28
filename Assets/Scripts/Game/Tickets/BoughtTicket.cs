@@ -19,6 +19,24 @@ public class BoughtTicket : MonoBehaviour
     [Tooltip("Locator")]
     public BoughtTicketLocator Locator;
 
+    [Tooltip("Winning Playing Area")]
+    public TicketPlayingAreaBase WinningArea;
+
+
+    [Header("Variables")]
+
+    [Tooltip("Is a winning ticket")]
+    public bool IsWinning;
+
+    [Tooltip("Winning ticket details")]
+    public BoughtTicketsWinnings WinningDetails;
+
+    [Header("Status")]
+
+    [ReadOnly]
+    [Tooltip("Random generator")]
+    public System.Random _random;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,21 +59,43 @@ public class BoughtTicket : MonoBehaviour
 
     internal void ApplySeed(int seed, int offset)
     {
+        // Set and offset random value
+        _random = new System.Random(seed);
+        for (var i = 0; i < offset; i++)
+        {
+            _random.Next();
+        }
+
         var seedCounter = seed;
         foreach (var playingArea in Locator.PlayingAreas)
         {
             seedCounter += SEED_OFFSET;
-            playingArea.Seed = seedCounter;
+
+            playingArea.ApplySeed(seedCounter, offset);
         }
+    }
+
+    internal int PickPlayingArea()
+    {
+        return _random.Next(0, 3);
     }
 
     internal void GenerateWin(BoughtTicketsWinnings winningTicket)
     {
-        
+        IsWinning = true;
+        WinningDetails = winningTicket;
+
+        var winningAreaIndex = PickPlayingArea();
+
+        WinningArea = Locator.PlayingAreas[winningAreaIndex];
     }
 
     internal void GenerateLoose()
     {
-        
+        IsWinning = false;
+        WinningDetails = new BoughtTicketsWinnings();
+        WinningArea = null;
+
+        PickPlayingArea();
     }
 }
