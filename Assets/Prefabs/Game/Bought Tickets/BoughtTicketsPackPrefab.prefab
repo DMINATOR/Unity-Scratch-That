@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locator: {fileID: 1356633650590086768}
+  WinningArea: {fileID: 0}
+  IsWinning: 0
+  WinningDetails:
+    PrizeValue: 0
+    PrizeCount: 0
 --- !u!114 &1356633650590086768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +155,11 @@ MonoBehaviour:
   Locator: {fileID: 332726663}
   Seed: 0
   CurrentTicketIndex: 0
+  TotalTickets: 0
+  Prizes: []
+  PrizesWon:
+    list: []
+    keyCollision: 0
 --- !u!114 &332726663
 MonoBehaviour:
   m_ObjectHideFlags: 0

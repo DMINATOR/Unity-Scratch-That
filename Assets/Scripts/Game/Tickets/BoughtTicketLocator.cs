@@ -5,5 +5,5 @@ using UnityEngine;
 public class BoughtTicketLocator : MonoBehaviour
 {
     [Tooltip("Playing areas on this ticket")]
-    public TicketPlayingAreaBase[] PlayingAreas;
+    public BoughtTicketPlayingAreaBase[] PlayingAreas;
 }

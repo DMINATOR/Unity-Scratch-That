@@ -20,7 +20,7 @@ public class BoughtTicket : MonoBehaviour
     public BoughtTicketLocator Locator;
 
     [Tooltip("Winning Playing Area")]
-    public TicketPlayingAreaBase WinningArea;
+    public BoughtTicketPlayingAreaBase WinningArea;
 
 
     [Header("Variables")]
