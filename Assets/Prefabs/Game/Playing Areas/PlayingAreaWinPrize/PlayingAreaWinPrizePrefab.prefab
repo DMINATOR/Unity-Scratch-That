@@ -43,5 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43e2ccc360d3fc49acc82f1291c74e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DESCRIPTION: 'This game area shows a $ number from WinningPrizes that is won.
+
+    If
+    no number is shown, nothing is won.'
   Seed: 0
   WinningPrizes: 

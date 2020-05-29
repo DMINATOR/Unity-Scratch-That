@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BoughtTicketPlayingAreaBase : MonoBehaviour
 {
+    [Header("Constants")]
+    [TextArea]
+    [Tooltip("Short description of a playing area")]
+    public string DESCRIPTION;
+
     [Header("Variables")]
 
     [Tooltip("Seed used for this playing area generation")]

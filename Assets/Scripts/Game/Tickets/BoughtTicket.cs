@@ -77,7 +77,7 @@ public class BoughtTicket : MonoBehaviour
 
     internal int PickPlayingArea()
     {
-        return _random.Next(0, 3);
+        return _random.Next(0, Locator.PlayingAreas.Length);
     }
 
     internal void GenerateWin(BoughtTicketsWinnings winningTicket)
