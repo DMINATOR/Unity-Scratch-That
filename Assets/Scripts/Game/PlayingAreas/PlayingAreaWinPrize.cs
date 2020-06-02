@@ -23,7 +23,7 @@ public class PlayingAreaWinPrize : BoughtTicketPlayingAreaBase
     public override void RenderArea()
     {
         // Render results:
-        PrizeToShow = PrizeValue == 0 ? "---" : PrizeValue.ToString();
+        PrizeToShow = PrizeValue == 0 ? "---" : $"${PrizeValue.ToString()}";
         Locator.GameLayerText.text = PrizeToShow;
     }
 }
