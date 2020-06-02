@@ -2,17 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayingAreaWinPrizeLocator))]
 public class PlayingAreaWinPrize : BoughtTicketPlayingAreaBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Locator")]
+
+    [Tooltip("Locator")]
+    public PlayingAreaWinPrizeLocator Locator;
+
+    [Header("Status")]
+
+    [Tooltip("Prize to show")]
+    public string PrizeToShow;
+
+    internal override void UpdateArea(int prizeValue)
     {
-        
+        base.UpdateArea(prizeValue);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void RenderArea()
     {
-        
+        // Render results:
+        PrizeToShow = PrizeValue == 0 ? "---" : PrizeValue.ToString();
+        Locator.GameLayerText.text = PrizeToShow;
     }
 }

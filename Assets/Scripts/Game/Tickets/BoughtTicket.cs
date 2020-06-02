@@ -80,6 +80,27 @@ public class BoughtTicket : MonoBehaviour
         return _random.Next(0, Locator.PlayingAreas.Length);
     }
 
+    internal void UpdatePlayingAreas(int winningAreaIndex, int prizeValue)
+    {
+        WinningArea = null;
+
+        for (int i = 0; i < Locator.PlayingAreas.Length; i++)
+        {
+            if( i == winningAreaIndex)
+            {
+                WinningArea = Locator.PlayingAreas[winningAreaIndex];
+                Locator.PlayingAreas[winningAreaIndex].UpdateArea(prizeValue); // Generate prize
+            }
+            else
+            {
+                Locator.PlayingAreas[i].UpdateArea(0); // No prize to generate
+            }
+
+            // Render change
+            Locator.PlayingAreas[i].RenderArea();
+        }
+    }
+
     internal void GenerateWin(BoughtTicketsWinnings winningTicket)
     {
         IsWinning = true;
@@ -87,7 +108,7 @@ public class BoughtTicket : MonoBehaviour
 
         var winningAreaIndex = PickPlayingArea();
 
-        WinningArea = Locator.PlayingAreas[winningAreaIndex];
+        UpdatePlayingAreas(winningAreaIndex, winningTicket.PrizeValue);
     }
 
     internal void GenerateLoose()
@@ -97,5 +118,7 @@ public class BoughtTicket : MonoBehaviour
         WinningArea = null;
 
         PickPlayingArea();
+
+        UpdatePlayingAreas(-1, 0);
     }
 }
