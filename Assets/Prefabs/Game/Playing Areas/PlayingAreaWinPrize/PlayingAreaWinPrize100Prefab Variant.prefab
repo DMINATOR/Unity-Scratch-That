@@ -62,20 +62,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 945512744361623761, guid: bd932aa7fb99be842b9372a774e1423b,
-        type: 3}
-      propertyPath: WinningPrizes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 945512744361623761, guid: bd932aa7fb99be842b9372a774e1423b,
-        type: 3}
-      propertyPath: WinningPrizes.Array.data[0]
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 945512744361623763, guid: bd932aa7fb99be842b9372a774e1423b,
         type: 3}
       propertyPath: m_Name
-      value: PlayingAreaWinPrize100Prefab
+      value: PlayingAreaWinPrize100Prefab Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd932aa7fb99be842b9372a774e1423b, type: 3}
